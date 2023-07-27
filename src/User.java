@@ -2,7 +2,7 @@ public class User {
   // attribute
   public String name;
 
-  public User(String name) {
+  public User(String name, int age) {
     this.name = name;
   }
 
