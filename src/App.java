@@ -1,10 +1,20 @@
+import memento.Editor;
+import memento.History;
+
 public class App {
     public static void main(String[] args) {
-        drawUIControl(new TextBox());
-        drawUIControl(new CheckBox());
-    }
+        var editor = new Editor();
+        var history = new History();
 
-    public static void drawUIControl(UIControl control) {
-        control.draw();
+        editor.setContent("a");
+        history.push(editor.createState());
+
+        editor.setContent("b");
+        history.push(editor.createState());
+
+        editor.setContent("c");
+        editor.restore(history.pop());
+
+        System.out.println(editor.getContent());
     }
 }
