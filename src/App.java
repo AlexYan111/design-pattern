@@ -1,6 +1,10 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        User user = new User("Alex", 30);
-        user.sayHello();
+        TaxCalculator calculator = getCalculator();
+        System.out.println(calculator.calculateTax());
+    }
+
+    public static TaxCalculator getCalculator() {
+        return new TaxCalculator2023();
     }
 }
